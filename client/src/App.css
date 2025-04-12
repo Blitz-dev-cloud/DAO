@@ -1,0 +1,510 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap");
+
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --danger-color: #e74c3c;
+  --warning-color: #f39c12;
+  --dark-color: #34495e;
+  --light-color: #ecf0f1;
+  --background-color: #f5f7fa;
+  --card-bg-color: #ffffff;
+  --border-color: #dce0e6;
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+button:disabled {
+  background-color: #b3d4fc;
+  cursor: not-allowed;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  margin-top: 0.3rem;
+  font-family: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.error {
+  color: var(--danger-color);
+  text-align: center;
+  padding: 2rem;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--dark-color);
+  color: white;
+  padding: 1rem;
+  border-radius: 0 0 8px 8px;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.navbar-account {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.account-address {
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+.owner-badge {
+  background-color: var(--warning-color);
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.token-info-card {
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.token-balance {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+
+.token-address {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.token-transfer {
+  border-top: 1px solid var(--border-color);
+  padding-top: 1.5rem;
+}
+
+.transfer-status {
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 4px;
+  background-color: var(--light-color);
+}
+
+.proposal-form-card {
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.admin-panel {
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  grid-column: 1;
+  grid-row: 3;
+}
+
+.no-tokens-warning {
+  margin-top: 1rem;
+  color: var(--warning-color);
+  font-size: 0.9rem;
+}
+
+.proposal-list {
+  grid-column: 2;
+  grid-row: span 3;
+}
+
+.proposal-list h2 {
+  margin-bottom: 1rem;
+}
+
+.no-proposals {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  color: var(--text-secondary);
+}
+
+.proposal-card {
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.proposal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.proposal-id {
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.proposal-status {
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.proposal-status.active {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.proposal-status.ended {
+  background-color: var(--text-secondary);
+  color: white;
+}
+
+.proposal-status.executed {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.proposal-description {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.proposal-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.voting-stats {
+  margin-bottom: 1.5rem;
+}
+
+.votes-bar {
+  width: 100%;
+  height: 10px;
+  background-color: var(--light-color);
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+}
+
+.for-votes {
+  height: 100%;
+  background-color: var(--secondary-color);
+}
+
+.against-votes {
+  height: 100%;
+  background-color: var(--danger-color);
+}
+
+.votes-numbers {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.votes-numbers .for {
+  color: var(--secondary-color);
+  font-weight: 600;
+}
+
+.votes-numbers .against {
+  color: var(--danger-color);
+  font-weight: 600;
+}
+
+.votes-numbers .total {
+  color: var(--text-secondary);
+}
+
+.voting-actions,
+.execution-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.vote-for {
+  background-color: var(--secondary-color);
+}
+
+.landing-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../public/bg.png");
+  background-size: cover;
+  background-position: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(76, 0, 130, 0.3), rgba(0, 0, 0, 0.5));
+  z-index: 1;
+}
+
+.glass-card {
+  width: 90%;
+  max-width: 800px;
+  background: transparent;
+  backdrop-filter: blur(20px);
+  padding: 40px;
+  border-radius: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  animation: glow 4s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.4);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(138, 43, 226, 0.8);
+  }
+}
+
+.dao-logo {
+  margin-bottom: 35px;
+  letter-spacing: 4px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.pixel-text {
+  font-family: "Press Start 2P", cursive;
+  color: white;
+  font-size: 32px;
+  text-shadow: 3px 3px 0 #000;
+}
+
+.highlight {
+  color: #bb86fc;
+}
+
+.dao-description {
+  margin-bottom: 40px;
+  font-family: "VT323", monospace;
+  font-size: 26px;
+  color: white;
+  line-height: 1.4;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dao-stats {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  margin-bottom: 50px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-label {
+  font-family: "VT323", monospace;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.members .stat-label {
+  color: #4ade80;
+}
+
+.treasury .stat-label {
+  color: #bb86fc;
+}
+
+.stat-value {
+  font-family: "Press Start 2P", cursive;
+  font-size: 24px;
+  color: white;
+}
+
+.connect-wallet-btn {
+  background: linear-gradient(135deg, #bb86fc, #6200ea);
+  color: white;
+  font-family: "Press Start 2P", cursive;
+  font-size: 16px;
+  padding: 16px 40px;
+  border: 3px solid #d0a5ff;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.connect-wallet-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(135deg, #c59bfd, #7a1cf7);
+}
+
+.connect-wallet-btn:active {
+  transform: translateY(1px);
+}
+
+.connect-wallet-btn::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(rgba(255, 255, 255, 0.2), transparent);
+  transform: rotate(30deg);
+  transition: all 0.5s;
+}
+
+.connect-wallet-btn:hover::after {
+  transform: rotate(30deg) translate(50%, 50%);
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.social-link {
+  font-family: "VT323", monospace;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s;
+  padding: 5px 10px;
+  border-bottom: 2px solid transparent;
+}
+
+.social-link:hover {
+  color: #bb86fc;
+  border-bottom: 2px solid #bb86fc;
+}
+
+@media (max-width: 768px) {
+  .pixel-text {
+    font-size: 22px;
+  }
+
+  .dao-description {
+    font-size: 20px;
+  }
+
+  .dao-stats {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .glass-card {
+    padding: 30px;
+  }
+}
